@@ -1,16 +1,23 @@
+import { useState } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Header from './components/Header'
 import About from './pages/About'
-
 export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <BrowserRouter>
-    <Header />
+    <div className="transition-transform duration-300 ease-in-out" style={{ marginLeft: isOpen ? '16rem' : '0' }}>
+    <Header isOpen={isOpen} toggleMenu={toggleMenu} />
     <Routes>
       <Route path="/" element ={<Home />} />
       <Route path="/about" element ={<About />} />
     </Routes>
+    </div>
     </BrowserRouter>
   )
 }
