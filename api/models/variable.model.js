@@ -37,7 +37,7 @@ const variableSchema = new mongoose.Schema(
             default: null,
         },
         impact:{
-            type: Number,
+            type: String,
             required: false,
         },
         added:{
@@ -72,5 +72,8 @@ const variableSchema = new mongoose.Schema(
             type: Number,
             required: false,
         },
-    }
+    },{timestamps: true}
 )
+
+const variableListing = mongoose.model('variableListing', variableSchema);
+export default variableListing;
