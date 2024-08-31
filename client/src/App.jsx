@@ -3,6 +3,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Header from './components/Header'
 import About from './pages/About'
+import Charts from './pages/Charts'
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,6 +17,7 @@ export default function App() {
     <Routes>
       <Route path="/" element ={<Home />} />
       <Route path="/about" element ={<About />} />
+      <Route path="/charts" element = {<Charts/>}/>
     </Routes>
     </div>
     </BrowserRouter>
